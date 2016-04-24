@@ -2,7 +2,7 @@ var Educahorro=angular.module('Educahorro',[]);
 
 function eduController($scope,$http){
 	$scope.formData={};
-	$scope.view="users";
+	$scope.view="Inicio";
 	$scope.user=null;
 	$http.get('/api/users')
 		.success(function(data) {
@@ -22,15 +22,19 @@ function eduController($scope,$http){
 		$scope.formData={};
 	};
 	$scope.login=function(){
-		$http.get('/api/users',$scope.formData)
+		var password=$scope.formData.password;
+		$http.get('/api/user/'+$scope.formData.email)
 			.success(function(data) {
-				$scope.user=data;
-				if(data===null){
-					$("#LoginContainer h6").css("display","block");	
-					console.log("Sí");
+				if(data.email===null||data.email===undefined){
+					$("#LoginContainer h6").css("display","block");
 				}
 				else{
-					console.log($scope.user);
+					if(data.password==password){
+						$scope.user=data;
+						$scope.view="Profile";
+					}
+					else
+						$("#LoginContainer h6").css("display","block");
 				}
 				console.log(data);
 			})
@@ -39,6 +43,39 @@ function eduController($scope,$http){
 				$("#LoginContainer h6").css("display","block");
 			});
 		$scope.formData={};
+	};
+	$scope.childForm=function(){
+		$scope.formData.newChild=true;	
+	};
+	$scope.newSon=function(){
+		if($scope.formData.name==undefined||($scope.formData.age==undefined)||($scope.formData.month==undefined)){
+			$("#NewUser h6").css("display","block");
+			$scope.formData={};
+			return;
+		}
+		var children=$scope.user.children;
+		children.push({
+			name: $scope.formData.name+" "+$scope.formData.second,
+			age: $scope.formData.age,
+			month: $scope.formData.month,
+			save: 0
+		});
+		var request={
+			children: children,
+			email: $scope.user.email
+		}
+		$http.post('/api/user',request)
+			.success(function(data) {
+				$scope.user=data;
+				console.log(data);
+				$scope.view="Save";
+				$scope.son=data.children[data.children.length-1];
+				console.log($scope.son)
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+				$("#NewUser h6").css("display","block");
+			});
 	};
 	$scope.newUser=function(){
 		if($scope.formData.password!=$scope.formData.password2||($scope.formData.name==undefined||($scope.formData.password==undefined)||($scope.formData.email==undefined))){

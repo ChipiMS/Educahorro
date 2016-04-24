@@ -22,7 +22,7 @@ var db=mongojs("localhost",["Users"]);
 	//create a user
 	app.post('/api/users', function(req, res) {
 		db.Users.save({
-			name: req.body.name+req.body.second,
+			name: req.body.name+" "+req.body.second,
 			password: req.body.password,
 			email: req.body.email,
 			children: [],
@@ -40,12 +40,16 @@ var db=mongojs("localhost",["Users"]);
 		},function (err,user){
 			if(err)
 				res.send(err);
-			res.json(user);
+			db.Users.findOne({email: req.body.email},function(err,users) {
+				if(err)
+					res.send(err);
+				res.json(users);
+			});
 		})
 	});
 	//login
-	app.get('/api/user', function(req, res) {
-		db.Users.find({email: req.body.email},function(err,users) {
+	app.get('/api/user/:parent', function(req, res){
+		db.Users.findOne({email: req.params.parent},function(err,users) {
 			if(err)
 				res.send(err);
 			res.json(users);
@@ -53,7 +57,6 @@ var db=mongojs("localhost",["Users"]);
 	});
 	app.get('/api/users', function(req, res) {
 		db.Users.find(function(err,users) {
-			console.log(users)
 			if(err)
 				res.send(err);
 			res.json(users);

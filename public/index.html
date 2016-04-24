@@ -25,8 +25,8 @@
 	<script src="core.js"></script>
 
 </head>
-<!-- SET THE CONTROLLER AND GET ALL USERS -->
 <body ng-controller="eduController">
+	<!-- TOOLBAR -->
 	<nav class="Toolbar">
 		<div ng-click="toggleSidebar()" class="fa fa-bars"></div>
 		<div class="Search"></div>
@@ -35,6 +35,7 @@
 			<div id="UserCircle" ng-click="goToView('Profile')" ng-hide="user==null"></div>
 		</div>
 	</nav>
+	<!-- SIDEBAR -->
 	<div class="Sidebar">
 		<div class="SidebarItem" ng-click="goToView('Inicio')">Inicio</div>
 		<div class="SidebarItem" ng-click="goToView('Proyección')">Metas</div>
@@ -242,7 +243,7 @@
 		<!-- NEWUSER -->
 		<div ng-show="view=='NewUser'">
 			<center>
-				<div id="NewUser">
+				<div class="NewUser">
 					<h3>Nombre</h3>
 					<input type="text" placeholder="Nombre" ng-model="formData.name"></input>
 					<h3>Apellidos</h3>
@@ -254,6 +255,28 @@
 					<h3>Confirmar contraseña</h3>
 					<input type="password" placeholder="Confirmar contraseña" ng-model="formData.password2"></input>
 					<div ng-click="newUser()">Crear usuario</div>
+					<h6>Llena bien los campos</h6>
+				</div>
+			</center>
+		</div>
+		<!-- PROFILE -->
+		<div id="Profile" ng-show="view=='Profile'">
+			<center>
+				<h2>Mis beneficiarios:</h2>
+				<div ng-repeat="child in user.children">
+					<div ng-click="goToChild(child.name)">{{child.name}}</div>
+				</div>
+				<div class="Button" ng-hide="formData.newChild" ng-click="childForm()">Nuevo hijo</div>
+				<div id="ChildForm" class="NewUser" ng-show="formData.newChild">
+					<h3>Nombre</h3>
+					<input type="text" placeholder="Nombre" ng-model="formData.name"></input>
+					<h3>Apellidos</h3>
+					<input type="text" placeholder="Apellidos" ng-model="formData.second"></input>
+					<h3>Edad</h3>
+					<input type="text" placeholder="Edad" ng-model="formData.age"></input>
+					<h3>Reto mensual</h3>
+					<input type="text" placeholder="Meta de dinero a ahorrar" ng-model="formData.month"></input>
+					<div ng-click="newSon()">Crear ahorro</div>
 					<h6>Llena bien los campos</h6>
 				</div>
 			</center>
