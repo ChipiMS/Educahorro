@@ -41,8 +41,15 @@
 		<div class="SidebarItem" ng-click="goToView('Proyección')">Metas</div>
 		<div class="SidebarItem" ng-click="goToView('Orientación Educativa')">Orientación Educativa</div>
 		<div class="SidebarItem" ng-click="goToView('Fondeadora')">Fondeadora</div>
+		<div class="SidebarItem" ng-click="goToView('Esta')">Estadísticas</div>
 	</div>
 	<main>
+		<div ng-show="view=='Esta'">
+			<img src="1.jpg">
+			<img src="2.jpg">
+			<img src="3.jpg">
+			<img src="4.jpg">
+		</div>
 		<!-- CONOCENOS -->
 		<div ng-show="view=='Conocenos'">
 			<center>
