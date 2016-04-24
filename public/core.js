@@ -4,6 +4,7 @@ function eduController($scope,$http){
 	$scope.formData={};
 	$scope.view="Inicio";
 	$scope.user=null;
+	$scope.Math = window.Math;
 	$http.get('/api/users')
 		.success(function(data) {
 			console.log(data);
@@ -16,6 +17,13 @@ function eduController($scope,$http){
 	};
 	$scope.closeChat=function(){
 		$("#Chat").css("display","none");
+	};
+	$scope.goToChild=function(aux){
+		$scope.view="Save";
+		for(var i=0;i<$scope.user.children.length;i++){
+			if($scope.user.children[i].name==aux)
+				$scope.son=$scope.user.children[i];
+		}
 	};
 	$scope.goToView=function(aux){
 		$scope.view=aux;

@@ -264,7 +264,7 @@
 			<center>
 				<h2>Mis beneficiarios:</h2>
 				<div ng-repeat="child in user.children">
-					<div ng-click="goToChild(child.name)">{{child.name}}</div>
+					<div ng-click="goToChild(child.name)" style="cursor: pointer;">{{child.name}}</div>
 				</div>
 				<div class="Button" ng-hide="formData.newChild" ng-click="childForm()">Nuevo hijo</div>
 				<div id="ChildForm" class="NewUser" ng-show="formData.newChild">
@@ -370,15 +370,54 @@
 			<center><A HREF ="http://www.decidetusestudios.sep.gob.mx/vista/test-vocacional/registro.php">Test Vocacional(SEP)</A><BR>
 					<A HREF ="http://www.elegircarrera.net/Test/General.aspx">Test Vocacional</A></center>
 		</div>
+		<!-- SAVE -->
+		<div id="Proyección" ng-show="view=='Save'">
+			<center>
+				<div style="margin:25px">
+					<img style="border-radius: 10px; width: 85%;" src="METAS.gif">
+				</div>
+			</center>
+			<p class="subtitle" style="margin-left: 10%;">Meta Mensual</p>
+			<center><div class="progressbarbox" >
+				<div class="progressbar" style="width: 80%;">
+				</div>
+			</div></center>
+			<p class="subtitle" style="margin-left: 10%;">Meta Anual</p>
+			<center><div class="progressbarbox" >
+				<div class="progressbar" style="width: 60%;">
+				</div>
+			</div></center>
+			<p class="subtitle" style="margin-left: 10%;">Meta Total</p>
+			<center><div class="progressbarbox" >
+				<div class="progressbar" style="width: 20%;">
+				</div>
+			</div></center>
+
+			<center>
+				<table class="proyecciontable">
+					<tr><td class="subtitle" rowspan="10" style="border: none;">Mis estadísticas</td><td style="padding-left,right:15px; padding-up,down:5px;">Edad de entrada a universidad</td>	<td style="padding-left:10px;">18</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Edad actual</td>					<td style="padding-left:10px;">{{son.age}}</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Años de ahorro</td>					<td style="padding-left:10px;">{{18-son.age}}</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Total ahorro mensual</td>			<td style="padding-left:10px;">{{son.month}}</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Tasa anual</td>						<td style="padding-left:10px;">3%</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Valor total ahorro</td>				<td style="padding-left:10px;">{{son*month*Math.pow(1+0.03/12,12*(18-son.age))}}</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Aportación empresa</td>				<td style="padding-left:10px;">{{0.25*(son*month*Math.pow(1+0.03/12,12*(18-son.age)))}}</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Total aportación</td>				<td style="padding-left:10px;">{{1.25*(son*month*Math.pow(1+0.03/12,12*(18-son.age)))}}</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Aportación EDUCAFIN</td>			<td style="padding-left:10px;">{{1.21*1.25*(son*month*Math.pow(1+0.03/12,12*(18-son.age)))}}</td></tr>
+					<tr><td style="padding-left,right:15px; padding-up,down:5px;">Cantidad total percibida</td>		<td style="padding-left:10px;">{{2.21*1.25*(son*month*Math.pow(1+0.03/12,12*(18-son.age)))}}</td></tr>
+				</table>
+				<img src="grafica.jpg">
+			</center>
+		</div>
 
 		<!-- FOOTER -->
 		<footer>
 			<ul class="FooterMenu">
-				<li class="FooterItem" ng-click="goToView('FAQ')">FAQ</li>
-				<li class="FooterItem" ng-click="goToView('Blog')">Blog</li>
-				<li class="FooterItem" ng-click="goToView('Terms and Privacy')">Terms and Privacy</li>
-				<li class="FooterItem" ng-click="goToView('Status')">Status</li>
-				<li class="FooterItem" ng-click="goToView('Contact')">Contact</li>
+				<li class="FooterItem">FAQ</li>
+				<li class="FooterItem">Blog</li>
+				<li class="FooterItem">Terms and Privacy</li>
+				<li class="FooterItem">Status</li>
+				<li class="FooterItem">Contact</li>
 				<li class="FooterItem" ng-click="chat()">Chat</li>
 			</ul>
 			<p class="FooterCopyright">2016 Los amigos de fintech</p>
