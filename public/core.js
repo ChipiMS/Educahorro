@@ -4,6 +4,13 @@ function eduController($scope,$http){
 	$scope.formData={};
 	$scope.view="users";
 	$scope.user=null;
+	$http.get('/api/users',$scope.formData)
+		.success(function(data) {
+			console.log(data);
+		})
+		.error(function(data) {
+			console.log('Error: ' + data);
+		});
 	$scope.chat=function(){
 		$("#Chat").css("display","block");
 	};

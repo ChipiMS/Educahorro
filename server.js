@@ -45,7 +45,14 @@ var db=mongojs("localhost",["Users"]);
 	});
 	//login
 	app.get('/api/users', function(req, res) {
-		db.Users.findOne({email: req.body.email,password: req.body.password},function(err,users) {
+		db.Users.find({email: req.body.email},function(err,users) {
+			if(err)
+				res.send(err);
+			res.json(users);
+		});
+	});
+	app.get('/api/user', function(req, res) {
+		db.Users.find(function(err,users) {
 			if(err)
 				res.send(err);
 			res.json(users);

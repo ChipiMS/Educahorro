@@ -10,6 +10,12 @@ body{
 #Chat{
 	display: none;
 }
+#Chat .fa{
+	float: right;
+    margin: 5px;
+    color: white;
+    cursor: pointer;
+}
 footer{
 	color: #aab7be;
 	padding-bottom: 32px;
