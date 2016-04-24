@@ -4,7 +4,7 @@ function eduController($scope,$http){
 	$scope.formData={};
 	$scope.view="users";
 	$scope.user=null;
-	$http.get('/api/users',$scope.formData)
+	$http.get('/api/users')
 		.success(function(data) {
 			console.log(data);
 		})

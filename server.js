@@ -44,15 +44,16 @@ var db=mongojs("localhost",["Users"]);
 		})
 	});
 	//login
-	app.get('/api/users', function(req, res) {
+	app.get('/api/user', function(req, res) {
 		db.Users.find({email: req.body.email},function(err,users) {
 			if(err)
 				res.send(err);
 			res.json(users);
 		});
 	});
-	app.get('/api/user', function(req, res) {
+	app.get('/api/users', function(req, res) {
 		db.Users.find(function(err,users) {
+			console.log(users)
 			if(err)
 				res.send(err);
 			res.json(users);
@@ -65,5 +66,5 @@ var db=mongojs("localhost",["Users"]);
 	});
 
 // listen (start app with node server.js) ======================================
-app.listen(8080);
-console.log("App listening on port 8080");
+app.listen(8090);
+console.log("App listening on port 8090");
