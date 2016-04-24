@@ -37,7 +37,9 @@
 	</nav>
 	<div class="Sidebar">
 		<div class="SidebarItem" ng-click="goToView('Inicio')">Inicio</div>
-		<div class="SidebarItem" ng-click="goToView('Conocenos')">Conocenos</div>
+		<div class="SidebarItem" ng-click="goToView('Proyección')">Metas</div>
+		<div class="SidebarItem" ng-click="goToView('Orientación Educativa')">Orientación Educativa</div>
+		<div class="SidebarItem" ng-click="goToView('Fondeadora')">Fondeadora</div>
 	</div>
 	<main>
 		<!-- CONOCENOS -->
@@ -114,6 +116,116 @@
 			<A HREF ="http://www.decidetusestudios.sep.gob.mx/vista/test-vocacional/registro.php">Test Vocacional(SEP)</A><BR>
 			<A HREF ="http://www.elegircarrera.net/Test/General.aspx">Test Vocacional</A>
 		</div>
+		<!-- FONDEADORA -->
+		<div id="fondeadora" ng-show="view=='Fondeadora'">
+			<center>
+				<div style="margin:25px">
+					<img style="border-radius: 10px; width: 85%;" src="FONDE.gif">
+				</div>
+			</center>
+			<center><p id="oh">Mi historia</p></center>
+			<center><table style="width: 80%;">
+				<tr>
+					<td class="text" rowspan="4"> 
+						Hola amigos, familiares y a todos los que estan leyendo mi historia. Mi nombre es Uriel. Tengo 13 años y actualmente estudio la secundaria. Aparte de mis estudios de secundaria, participo en diferentes clubes, programas, conferencias y proyectos de ciencia para los jovenes y niños. Siempre que hay algún concurso o evento en mi escuela, soy de los primeros en levantar la mano. Con todas estas actividades he tenido grandes aprendizajes y experiencias, que espero me puedan servir en el futuro. El día de hoy, mis padres se dieron a la tarea de comenzar a ahorrar para mis estudios universitarios, y así poder aprender las herramientas que me ayudarán a explotar mis habilidades. Si te gustaría apoyarme, 	da clic en fondear y ponte en contacto con nosotros.
+					</td>
+					<td colspan="2"> 
+						Principales fondeadores
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img id="ppic" src="pp1.jpg">
+					</td>
+					<td>
+						<center>Noah De Jong </center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img id="ppic" src="pp2.jpg">
+					</td>
+					<td>
+						<center>Sophia Carvalho </center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img id="ppic" src="pp3.jpg">
+					</td>
+					<td>
+						<center>Paco Fernández </center>
+					</td>
+				</tr>
+			</table></center>
+			<center><p id="oh">Otras historias</p></center>
+			<center><table style="width:80%;">
+				<tr>
+					<td class="text" rowspan="4">Mi nombre es Fernando Hernández, tengo 14 años, debido a que mi familia es de escasos recursos, me veo en la necesidad de trabajar por las tardes, regresando de la secundaria, estoy de empacador en un minisúper cerca de mi casa, esto lo hago para poder solventar un poco más los gastos de la casa, soy el mayor de dos hijos, vivo con mi mamá y mi abuela. A pesar de que vivimos al día, quisiera terminar mi secundaria y posteriormente quisiera prepararme para ser carpintero y poder ser responsable de mi tiempo y mi dinero. ¿Donarías para capacitarme?</td>
+					<td colspan="2"> Principales fondeadores</td>
+				</tr>
+				<tr>
+					<td>
+						<img id="ppic" src="pp4.jpg">
+					</td>
+					<td>
+						<center>Mei-ling Cheung </center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img id="ppic" src="pp5.png">
+					</td>
+					<td>
+						<center>Kylo Ren </center>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img id="ppic" src="pp6.jpg">
+					</td>
+					<td>
+						<center>André Smith </center>
+					</td>
+				</tr>
+			</table></center>
+		</div>
+		<!-- INICIO -->
+		<div id="Inicio" ng-show="view=='Inicio'">
+				<center><table>
+				<tr>
+					<td><img id="smallimg" src="gto.png"></td>
+					<td><img id="largeimg" src="logoweb.png"></td>
+					<td><img id="smallimg" src="educafin.png"></td>
+				</table></center>
+				<center><table>
+					<tr>
+						<td class="subtitle">¿Qué somos?</td>
+						<td class="text">Somos un proyecto de EducaFin que está en pro del futuro de los guanajuatenses, creando conciencia de la importancia del ahorro para fines educativos, proporcionando herramientas para facilitar el financiamiento de estudios de nivel superior, cursos, certificaciones, intercambios, talleres, entre otros.</td>
+					</tr>
+				</table></center>
+				<center><table>
+					<tr>
+						<td class="subtitle"> ¿Cómo lo hacemos?</td>
+						<td class="text">Haciendo una relación con las empresas, las cuales brinden oportunidades a sus empleados para crear un fondo de ahorro educativo, otorgando un porcentaje adicional para incrementar el beneficio.</td>
+					</tr>
+				</table></center>	
+				<center><table>
+					<tr>
+						<td class="subtitle">¿Para quién?</td>
+						<td class="text">Para toda persona que quiera crear un recurso para financiar su educación y la de otros.</td>
+					</tr>
+				</table></center>
+				<center><table>
+					<tr>
+						<td class="subtitle">Nuestro propósito</td>
+						<td class="text">Crear una cultura de ahorro y potencializar la educación en la región.</td>
+					</tr>
+				</table></center>
+				<center>
+					<p>Educahorro es una extension de EDUCAFIN con el objetivo de ayudarte a ahorrar en una mejor educacion para tus hijos.<BR>No solo imagines un 		mundo mejor para ellos, crealo!<BR> </p><BR><BR><BR>
+				</center>
+		</div>
 		<!-- LOGIN -->
 		<div ng-show="view=='Login'">
 			<center>
@@ -146,6 +258,95 @@
 				</div>
 			</center>
 		</div>
+		<!-- PROYECCION -->
+		<div id="Proyección" ng-show="view=='Proyección'">
+			<center>
+				<div style="margin:25px">
+					<img style="border-radius: 10px; width: 85%;" src="METAS.gif">
+				</div>
+			</center>
+			<p class="subtitle" style="margin-left: 10%;">Meta Mensual</p>
+			<center><div class="progressbarbox" >
+				<div class="progressbar" style="width: 80%;">
+				</div>
+			</div></center>
+			<p class="subtitle" style="margin-left: 10%;">Meta Anual</p>
+			<center><div class="progressbarbox" >
+				<div class="progressbar" style="width: 80%;">
+				</div>
+			</div></center>
+			<p class="subtitle" style="margin-left: 10%;">Meta Total</p>
+			<center><div class="progressbarbox" >
+				<div class="progressbar" style="width: 80%;">
+				</div>
+			</div></center>
+
+			<center><table class="proyecciontable">
+				<tr><td class="subtitle" rowspan="10" style="border: none;">Mis estadísticas</td><td style="padding-left,right:15px; padding-up,down:5px;">Edad de entrada a universidad</td>	<td style="padding-left:10px;">18</td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Edad actual</td>					<td style="padding-left:10px;">7</td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Años de ahorro</td>					<td style="padding-left:10px;">15</td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Total ahorro mensual</td>			<td style="padding-left:10px;"></td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Tasa anual</td>						<td style="padding-left:10px;">3%</td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Valor total ahorro</td>				<td style="padding-left:10px;"></td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Aportación empresa</td>				<td style="padding-left:10px;"></td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Total aportación</td>				<td style="padding-left:10px;"></td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Aportación EDUCAFIN</td>			<td style="padding-left:10px;"></td></tr>
+				<tr><td style="padding-left,right:15px; padding-up,down:5px;">Cantidad total percibida</td>		<td style="padding-left:10px;"></td></tr>
+			</center></table>
+		</div>
+		<!-- ORIENTACION -->
+		<div ng-show="view=='Orientación Educativa'">
+			<center>
+				<div style="margin:25px;">
+					<img style="border-radius: 10px; width: 85%" src="oebanner.gif">
+				</div>
+			</center>
+			<center>Desde ahora con Educahorro puedes empezar a crear un monto para mejorar el futuro de la educacion de tus hijos.<BR> Aqui se muestran algunas 		 universidades asociadas a este proyecto.</center>
+			<center>
+				<div class="imagencontexto">
+					<div class="imagendeltexto">
+						<center><A HREF="http://www.ipn.mx/Paginas/inicio.aspx">Instituto Politecnico Nacional</A></center>
+					</div>
+					<A HREF="http://www.ipn.mx/Paginas/inicio.aspx"><img src="ipn.png"></A>
+				</div>
+				<div class="imagencontexto">
+					<div class="imagendeltexto">
+						<center><A HREF="http://bajio.delasalle.edu.mx/">Universidad de la Salle</A></center>
+					</div>
+					<A HREF="http://bajio.delasalle.edu.mx/"><img src="lasalle.jpg"></A>
+				</div>
+				<div class="imagencontexto">
+					<div class="imagendeltexto">
+						<center><A HREF="http://www.uia.mx/">Universidad Iberoamericana</A></center>
+					</div>
+					<A HREF="http://www.uia.mx/"><img src="iberoamericana.jpg"></A>
+				</div>
+			</center>
+			<center><p>Top 5 mejores universidades de México</p><BR><BR></center>
+			<center><TABLE BORDER="1" >
+				<TR>
+				 	<Th style="width:65px">Ranking</Th> <Th style="width:450px">Universidad</Th><Th style="width:105px">Dependencia</Th><Th style="width:80px">Ciudad</Th><Th>Zona</Th>
+			 	</TR>
+			 	<TR>
+				 	<TD>1</TD> <TD>Universidad Nacional Autonoma de Mexico</TD><TD>Publica</TD><TD>D.F.</TD><TD>Centro</TD>
+			 	</TR>
+			 	<TR>
+				 	<TD>2</TD> <TD>Instituto Tecnologico y de Estudios Superiores de Monterrey</TD><TD>Privada</TD><TD>Monterrey  </TD><TD>Noroeste</TD>
+			 	</TR>
+			 	<TR>
+				 	<TD>3</TD> <TD>Instituto Politecnico Nacional</TD><TD>Publica</TD><TD>D.F.</TD><TD>Centro</TD>
+			 	</TR>
+			 	<TR>
+				 	<TD>4</TD> <TD>Universidad Autonoma Metropolitana</TD><TD>Publica</TD><TD>D.F.</TD><TD>Centro</TD>
+			 	</TR>
+			 	<TR>
+				 	<TD>5</TD> <TD>El colegio de Mexico</TD><TD>Publica</TD><TD>D.F.</TD><TD>Centro</TD>
+			 	</TR>
+			</TABLE></center>
+			<center><BR><BR><p>¿No tienes ideas de que estudiar? Apoyate con estos test vocacional para descubrir tu verdadera vocación.</p><BR></center>
+			<center><A HREF ="http://www.decidetusestudios.sep.gob.mx/vista/test-vocacional/registro.php">Test Vocacional(SEP)</A><BR>
+					<A HREF ="http://www.elegircarrera.net/Test/General.aspx">Test Vocacional</A></center>
+		</div>
 
 		<!-- FOOTER -->
 		<footer>
@@ -159,6 +360,11 @@
 			</ul>
 			<p class="FooterCopyright">2016 Los amigos de fintech</p>
 		</footer>
+		<!-- CHAT -->
+		<div id="Chat" style="height:334px; width:259px; position:fixed; bottom:0; right:17px; background-color:#ededed; border:1px solid grey; border-radius:3px;">
+			<div style="height:28px; width:259px; background-color:orange;"></div>
+			<div style="height:28px; width:259px; background-color:white; position: fixed; bottom: 0"></div>
+		</div>
 	</main>
 </body>
 </html>
